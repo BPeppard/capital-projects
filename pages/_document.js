@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Document, { Head, Main, NextScript } from 'next/document';
-import flush from 'styled-jsx/server';
+import React from "react";
+import PropTypes from "prop-types";
+import Document, { Head, Main, NextScript } from "next/document";
+import flush from "styled-jsx/server";
 
 class MyDocument extends Document {
   render() {
@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <html lang="en" dir="ltr">
         <Head>
-          <title>My page</title>
+          <title>Capital Projects</title>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta

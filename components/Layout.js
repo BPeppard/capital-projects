@@ -1,34 +1,34 @@
-import React from 'react';
-import Router from 'next/router';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Cookies from 'universal-cookie';
-import { NextAuth } from 'next-auth/client';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import TextField from '@material-ui/core/TextField';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountIcon from '@material-ui/icons/AccountCircle';
+import React from "react";
+import Router from "next/router";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Cookies from "universal-cookie";
+import { NextAuth } from "next-auth/client";
+import { withStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import TextField from "@material-ui/core/TextField";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import MenuIcon from "@material-ui/icons/Menu";
+import AccountIcon from "@material-ui/icons/AccountCircle";
 
-import Drawer from '../components/Drawer';
-import SignIn from '../components/SignIn';
+import Drawer from "../components/Drawer";
+import SignIn from "../components/SignIn";
 
 const drawerWidth = 240;
 
@@ -41,23 +41,23 @@ const styles = theme => ({
   },
   appFrame: {
     // height: '100%',
-    height: '100vh',
+    height: "100vh",
     zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex',
-    width: '100%'
+    overflow: "hidden",
+    position: "relative",
+    display: "flex",
+    width: "100%"
   },
   appBar: {
-    position: 'absolute',
-    transition: theme.transitions.create(['margin', 'width'], {
+    position: "absolute",
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
     })
@@ -70,17 +70,17 @@ const styles = theme => ({
     marginRight: 20
   },
   hide: {
-    display: 'none'
+    display: "none"
   },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    overflow: 'auto'
+    overflow: "auto"
   },
   noGutters: {
     padding: 0
@@ -89,7 +89,7 @@ const styles = theme => ({
     marginLeft: -drawerWidth
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
     })
@@ -98,10 +98,10 @@ const styles = theme => ({
     marginLeft: 0
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
     ...theme.mixins.toolbar
   }
 });
@@ -125,7 +125,7 @@ class Layout extends React.Component {
   };
 
   toggleModal = async event => {
-    console.log('Called toggleModal');
+    console.log("Called toggleModal");
     if (event) {
       event.preventDefault();
     }
@@ -133,7 +133,7 @@ class Layout extends React.Component {
     // Save current URL so user is redirected back here after signing in
     if (this.state.modal !== true) {
       const cookies = new Cookies();
-      cookies.set('redirect_url', window.location.pathname, { path: '/' });
+      cookies.set("redirect_url", window.location.pathname, { path: "/" });
     }
 
     this.setState({
@@ -174,7 +174,7 @@ class Layout extends React.Component {
                 className={classes.flex}
                 noWrap
               >
-                Example Next.js App
+                Capital Projects
               </Typography>
               <UserMenu
                 session={this.props.session}
@@ -230,31 +230,31 @@ export class UserMenu extends React.Component {
     const formData = {
       _csrf: await NextAuth.csrfToken()
     };
-    fetch('/auth/signout', {
-      credentials: 'include',
-      method: 'POST',
+    fetch("/auth/signout", {
+      credentials: "include",
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(formData)
     })
       .then(async res => {
-        console.log('Signout user res:');
+        console.log("Signout user res:");
         console.log(res);
         if (res.status === 200) {
           // Save current URL so user is redirected back here after signing out
           const cookies = new Cookies();
-          cookies.set('redirect_url', window.location.pathname, { path: '/' });
+          cookies.set("redirect_url", window.location.pathname, { path: "/" });
 
           await NextAuth.signout();
-          Router.push('/');
+          Router.push("/");
         } else {
-          console.log('Error in signout response. res:');
+          console.log("Error in signout response. res:");
           console.log(res);
         }
       })
       .catch(err => {
-        console.log('Error signing user out. error:');
+        console.log("Error signing user out. error:");
         console.log(err);
       });
   };
