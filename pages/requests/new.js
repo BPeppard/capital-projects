@@ -27,7 +27,12 @@ class NewRequest extends Page {
     super(props);
     this.state = {
       requestId: '{Auto-Generated}',
-      requestingDepartment: ''
+      requestName: '',
+      requestStatus: '',
+      totalCityCost: '',
+      requestorsName: '',
+      requestingDepartment: '',
+      requestType: ''
     };
   }
 

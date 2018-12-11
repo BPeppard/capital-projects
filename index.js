@@ -6,7 +6,8 @@ const nextAuthConfig = require('./next-auth.config');
 
 const routes = {
   admin: require('./routes/admin'),
-  account: require('./routes/account')
+  account: require('./routes/account'),
+  requestTypes: require('./routes/requestTypes')
 };
 
 // Load environment variables from .env file if present
